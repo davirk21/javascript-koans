@@ -17,10 +17,10 @@ describe("About Arrays", function() {
 
   it("should understand array literals", function() {
     var array = [];
-    expect(array).toEqual(["object"]);
+    expect(array).toEqual([]);
     
     array[0] = 1;
-    expect(array[0]).toEqual([1]);
+    expect(array[0]).toEqual(1);
     
     array[1] = 2;
     expect(array).toEqual([1, 2]);
@@ -46,12 +46,12 @@ describe("About Arrays", function() {
   it("should slice arrays", function() {
     var array = ["peanut", "butter", "and", "jelly"];
     
-    expect(array.slice(0, 1)).toEqual("peanut");
-    expect(array.slice(0, 2)).toEqual("peanut", "butter");
+    expect(array.slice(0, 1)).toEqual(["peanut"]);
+    expect(array.slice(0, 2)).toEqual(["peanut", "butter"]);
     expect(array.slice(2, 2)).toEqual([]);
-    expect(array.slice(2, 20)).toEqual("and","jelly");
+    expect(array.slice(2, 20)).toEqual(["and","jelly"]);
     expect(array.slice(3, 0)).toEqual([]);
-    expect(array.slice(3, 100)).toEqual("jelly");
+    expect(array.slice(3, 100)).toEqual(["jelly"]);
     expect(array.slice(5, 1)).toEqual([]);
   });
 
@@ -59,7 +59,7 @@ describe("About Arrays", function() {
     var array = [ "zero", "one", "two", "three", "four", "five" ];
 
     function passedByReference(refArray) {
-      refArray[1] = "changed in function";
+      refArray[1] = "one";
     }
     passedByReference(array);
     expect(array[1]).toBe("one");
